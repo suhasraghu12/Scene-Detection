@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+
+body {
+    font-family: 'Oswald', sans-serif;
+    background-color: #121212; /* Dark cinematic background */
+    color: #e0e0e0; /* Light text for readability */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px; /* Increased padding for better spacing */
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent overlay for depth */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.3); /* Red glow for movie theater feel */
+}
+
+h1 {
+    text-align: center;
+    color: #ff0000; /* Red for cinematic emphasis */
+    font-size: 2.5em; /* Larger font size */
+    text-transform: uppercase; /* Uppercase for dramatic effect */
+    letter-spacing: 2px; /* Spacing for style */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for depth */
+}
+
+p {
+    text-align: center;
+    color: #b3b3b3; /* Softer gray for paragraphs */
+    font-size: 1.1em;
+}
+
+.upload-section {
+    text-align: center;
+    margin: 30px 0; /* Increased margin */
+    padding: 20px;
+    background: #1e1e1e; /* Darker section background */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.2); /* Subtle red shadow */
+}
+
+.upload-section label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #ff0000; /* Red label text */
+    font-size: 1.2em;
+}
+
+.upload-section input[type="file"] {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #333; /* Dark input background */
+    color: #fff;
+    border: 1px solid #ff0000; /* Red border */
+    border-radius: 5px;
+}
+
+.upload-section button {
+    background-color: #ff0000; /* Red button for action */
+    color: white;
+    padding: 12px 30px; /* Larger padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.2s; /* Smooth transitions */
+}
+
+.upload-section button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.error {
+    color: #ffcccc; /* Light red for errors */
+    text-align: center;
+    margin: 15px 0;
+    font-size: 1.1em;
+}
+
+.results {
+    margin-top: 40px;
+    padding: 20px;
+    background: #1e1e1e; /* Dark results background */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+}
+
+.results h2 {
+    color: #ff0000; /* Red header */
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.results p {
+    text-align: left;
+    margin: 15px 0;
+    padding: 0 30px; /* Increased padding */
+    font-size: 1.1em;
+    color: #d9d9d9;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px; /* Larger gap */
+    padding: 30px;
+    position: relative; /* For pseudo-elements */
+    background: #000; /* Black background for film reel */
+    border-radius: 10px;
+    overflow: hidden; /* Hide overflow */
+}
+
+/* Film reel effect with dashed borders */
+.gallery::before,
+.gallery::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20px; /* Width of the film perforations */
+    background: repeating-linear-gradient(
+        to bottom,
+        #fff 0,
+        #fff 10px,
+        transparent 10px,
+        transparent 20px
+    ); /* Perforation pattern */
+    opacity: 0.3; /* Semi-transparent */
+}
+
+.gallery::before {
+    left: 0;
+}
+
+.gallery::after {
+    right: 0;
+}
+
+.gallery-item {
+    background-color: #282828; /* Darker item background */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Deeper shadow */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover transitions */
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px); /* Lift on hover */
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4); /* Red glow on hover */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 5px solid #ff0000; /* Red border at bottom for accent */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design enhancements */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        padding: 20px;
+    }
+}
+
+/* New feature: Genre-specific themes (example for horror genre) */
+body.horror-theme {
+    background-color: #000;
+    color: #ff6666; /* Blood red text */
+}
+
+body.horror-theme .container {
+    box-shadow: 0 4px 20px rgba(139, 0, 0, 0.5); /* Dark red shadow */
+}
+
+body.horror-theme .upload-section button {
+    background-color: #8b0000;
+}
+
+body.horror-theme .upload-section button:hover {
+    background-color: #660000;
+}
+
+/* Add more genre classes as needed, e.g., .sci-fi-theme, .comedy-theme */

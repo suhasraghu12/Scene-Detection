@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scene Change Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Scene Change Detection</h1>
+        <p>Upload a video to detect scene changes and view the results.</p>
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="upload-section">
+                <label for="video">Upload Video (mp4, avi, mov, mkv):</label>
+                <input type="file" id="video" name="video" accept=".mp4,.avi,.mov,.mkv" required>
+                <button type="submit">Analyze Video</button>
+            </div>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if frames %}
+            <div class="results">
+                <h2>Detected Scene Changes</h2>
+                <p><strong>Frame Numbers:</strong> {{ frames }}</p>
+                <p><strong>Timestamps (seconds):</strong> {{ timestamps }}</p>
+                
+                <h3>Visualizations</h3>
+                <div class="gallery">
+                    {% for img in visualizations %}
+                        <div class="gallery-item">
+                            <img src="data:image/png;base64,{{ img }}" alt="Scene Change">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

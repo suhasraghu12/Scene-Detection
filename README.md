@@ -5,7 +5,7 @@ This project implements a scene change detection system for videos using frame d
 
 ## Features
 - **Scene Change Detection**: Uses OpenCV to detect scene changes based on frame differencing with a configurable threshold.
-- **Frontend Interface**: A Gradio-based interface allows users to upload videos and view detected scene changes, including frame numbers, timestamps, and visualizations.
+- **Frontend Interface**: A HTML-based interface allows users to upload videos and view detected scene changes, including frame numbers, timestamps, and visualizations.
 - **Visualization**: Displays images of frames where scene changes occur, with timestamps overlaid.
 
 ## Prerequisites
@@ -14,12 +14,12 @@ To run this project, ensure the following dependencies are installed:
 - OpenCV (`cv2`)
 - NumPy
 - Matplotlib
-- Gradio
-- (Optional) Google Colab for running in a cloud environment
+- HTML
+- CSS
 
 You can install the required packages using:
 ```bash
-pip install opencv-python numpy matplotlib gradio
+pip install opencv-python numpy matplotlib 
 ```
 
 ## Installation
@@ -29,7 +29,7 @@ pip install opencv-python numpy matplotlib gradio
 
 ## Usage
 1. **Run the Script**:
-   - Execute the `scene_detection.py` script in a Python environment or Google Colab.
+   - Execute the `app.py` script in a Python environment or Google Colab.
    - The script includes a Gradio interface that launches automatically.
 
 2. **Upload a Video**:
@@ -43,7 +43,7 @@ pip install opencv-python numpy matplotlib gradio
    - The default pixel intensity difference threshold is set to 30. To modify this, update the `threshold` parameter in the `process_video_for_frontend` function call within the script.
 
 ## File Structure
-- `scene_detection.py`: Main Python script containing the scene change detection logic and Gradio frontend.
+- `app.py`: Main Python script containing the scene change detection logic and Gradio frontend.
 - `README.md`: This file, providing an overview and instructions for the project.
 
 ## How It Works
